@@ -1,0 +1,85 @@
+/* LEAFLET MODIFICATION  */
+
+/* markers */
+.leaflet-default-icon-path {
+    /* used only in path-guessing heuristic, see L.Icon.Default */
+    background-image: url(https://unpkg.com/leaflet@1.8.0/dist/images/marker-icon.png);
+}
+
+/* leaflet popup */
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    color: #5bf870;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+    font-size: 1.4em;
+    font-family: "VT323", monospace;
+    background-color: var(--darkgreencolor);
+    background-image: url("/img/popup-bg.jpg");
+}
+
+.leaflet-popup-content-wrapper b {
+    letter-spacing: 0.1em;
+    color: rgba(122, 248, 141, 0.94);
+    text-transform: uppercase;
+}
+
+.popup-header {
+    color: rgba(218, 79, 79, 0.96);
+    font-size: 1.3em;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #5bf870, 0 0 5px #5bf870, 0 0 5px #5bf870;
+    animation: textShadow 4s infinite;
+}
+
+/* leaflet zoom/out */
+.leaflet-control-zoom {
+    border: none !important;
+}
+
+.leaflet-control-zoom a {
+    border-radius: 50% !important;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.leaflet-control-zoom a.leaflet-control-zoom-in {
+    margin-bottom: 5px;
+}
+
+.leaflet-control-zoom a.leaflet-control-zoom-out {
+    margin-top: 5px;
+}
+
+.element.style {
+    margin-left: -10px;
+    margin-top: -36px;
+    width: 25px;
+    height: 41px;
+    transform: translate3d(20px, 470px, 0px);
+    z-index: 470;
+}
+
+.leaflet-container .leaflet-marker-pane img, .leaflet-container .leaflet-shadow-pane img, .leaflet-container .leaflet-tile-pane img, .leaflet-container img.leaflet-image-layer, .leaflet-container .leaflet-tile {
+    max-width: none !important;
+    max-height: none !important;
+    width: auto;
+    padding: 0;
+}
+
+.leaflet-marker-icon {
+}
+#map-text {
+    display: block;
+    position: absolute;
+    background-color: #2B323F;
+    font-family: monospace;
+    font-size: 1.1em;
+    color: #AEC2E8;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}

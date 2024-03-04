@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="C=chrome" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/leaflet.css" rel="stylesheet" />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"
+      defer
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"
+      defer
+    ></script>
+    <script src="js/leaflet.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/dialogue.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <style></style>
+    <title>Medihelipeli</title>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        id="infoPopUp"
+        class="infoPopUp info-buttons scanlines vignette-overlay"
+      >
+        <button id="closePopUp" onclick="closePopup()"></button>
+        <nav id="infoPopUpText">
+          <ul class="flex-wrap space-evenly">
+            <li><button onclick="showContent('rules')">RULES</button></li>
+            <li>
+              <button onclick="showContent('location')">LOCATION</button>
+            </li>
+            <li><button onclick="showContent('lorem')">LORE</button></li>
+          </ul>
+          <div id="rulesContent" class="popup-content glowing-text2">
+            <h3>How to win</h3>
+            <p>
+              The idea for the game is to rescue all the Antidote Carriers with
+              the immunity from different cities and return them to the main
+              hospital to make an antidote to the virus.
+            </p>
+            <p>
+              For every returned patient you gain more range to save more
+              Antidote Carriers.
+            </p>
+
+            <p>The helicopter has a maximum capacity of 3 Antidote Carriers.</p>
+            <p>
+              The game ends when you have rescued all the Antidote Carriers or
+              you ran out of range.
+            </p>
+          </div>
+          <div id="loremContent" class="popup-content glowing-text2">
+            <p>
+              There is an epidemic outbreak across the world and the virus have
+              landed to cold and dark Norway. The scientists of Norway have
+              discovered that some of the humans are immune to the virus. In the
+              Trondheim main laboratory in Norway, they believe that it is
+              possible to make an antidote from the blood of those humans.
+            </p>
+            <p>
+              There has been rumors going around that there is 12 humans alive
+              who have this immunity around the Norway. Because of the epidemic
+              you are the last medical helicopter pilot who is capable to rescue
+              those humans.
+            </p>
+            <p>
+              If you manage to rescue every patient before the fuel runs out,
+              you'll be hailed as a hero of Norway. Otherwise, the rest of the
+              human race faces an uncertain fate.
+            </p>
+          </div>
+          <div id="locationContent" class="popup-content glowing-text2">
+            <h3 id="city-name">Jou</h3>
+            <img
+              id="city-picture"
+              class="city-picture-overlay"
+              src=""
+              alt="city-picture"
+            />
+          </div>
+        </nav>
+      </div>
+      <main class="grid-div">
+        <div id="map">
+          <div class="map-text" id="map-text">Click marker to fly</div>
+        </div>
+        <div class="box-container">
+          <section class="box-top scanlines vignette-overlay">
+            <header>
+              <nav>
+                <ul class="flex-wrap space-between centered-list">
+                  <li>
+                    <h2 id="information" class="glowing-text">Information:</h2>
+                  </li>
+                  <li>
+                    <h2>
+                      <button
+                        id="info-wikipedia"
+                        onclick="openPopUp()"
+                        class="infoPopUp-styling"
+                      >
+                        ?
+                      </button>
+                    </h2>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+            <table class="glowing-text update-info-list">
+              <tr>
+                <td id="screen-name">name:empty</td>
+              </tr>
+              <tr>
+                <td id="range-info">My range:empty</td>
+              </tr>
+              <tr>
+                <td id="patient-goal">Patient goal:empty</td>
+              </tr>
+              <tr>
+                <td id="patient-quantity">Patient quantity:empty</td>
+              </tr>
+              <tr>
+                <td id="current-location">Airport:empty</td>
+              </tr>
+            </table>
+            <div id="mascot">
+              <img
+                class="mascot-image"
+                src="img/mascot-animation-official.gif"
+              />
+            </div>
+          </section>
+          <section #border-img class="box-bottom scanlines vignette-overlay">
+            <header class="glowing-text">
+              <h2 id="patient-locations">Airports:</h2>
+            </header>
+            <ul id="range-and-airports" class="flex-wrap"></ul>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div id="player-box" class="rainfall">
+      <audio
+        id="mainmenu-sound"
+        src="sounds/maingame-mediheli.mp3"
+        muted
+      ></audio>
+      <form id="player-form">
+        <h1>Medihelipeli</h1>
+        <input
+          type="text"
+          id="player-name"
+          placeholder="Player name"
+          required
+        />
+        <input type="submit" value="Start Game" />
+      </form>
+    </div>
+  </body>
+</html>
